@@ -6,6 +6,7 @@ export default defineConfig({
   build: {
     outDir: "../_site",
     emptyOutDir: true,
+    assetsDir: "bundle",
   },
   server: {
     open: true,
