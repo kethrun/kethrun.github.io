@@ -1,3 +1,4 @@
+// Do not destroy this class
 export class Renderer {
   fps = 0;
   #fpsCounter = 0;
@@ -31,7 +32,7 @@ export class Renderer {
   
   #handleFrame(t) {
     if (!this.frameCallback) {
-      this.ctx.fillStyle = "#000000";
+      this.ctx.fillStyle = "#402000";
       this.ctx.fillRect(0, 0, this.width, this.height);
     } else {
       this.frameCallback(t);
