@@ -28,6 +28,7 @@ export class Renderer {
     this.height = window.innerHeight;
     
     this.ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+    this.ctx.imageSmoothingEnabled = false;
   }
   
   #handleFrame(t) {
