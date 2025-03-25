@@ -26,6 +26,48 @@ export class World {
   }
   
   getChunk(x, y) {
-    return this.#chunks[y][x];
+    if (this.#chunks[y]?.[x]) {
+      return new Chunk(this.#chunks[y][x]);
+    } else {
+      return undefined;
+    }
+  }
+}
+
+export class Chunk {
+  #canvas;
+  #ctx;
+  
+  constructor(blocks) {
+    this.blocks = blocks;
+    this.canvas = new OffscreenCanvas(16*32, 16*32);
+    this.#ctx = this.canvas.getContext("2d");
+    this.#render();
+  }
+  
+  #render() {
+    for (let y = 0; y < 16; y++) {
+      for (let x = 0; x < 16; x++) {
+        switch (this.blocks[y][x]) {
+          case 0:
+            this.#ctx.fillStyle = "#0080ff";
+          break;
+          case 1:
+            this.#ctx.fillStyle = "#008000";
+          break;
+          case 2:
+            this.#ctx.fillStyle = "#ffff80";
+          break;
+          case 3:
+            this.#ctx.fillStyle = "#808080";
+          break;
+          default:
+            this.#ctx.fillStyle = "#ff00ff";
+            console.warn(`Unknown block ${this.blocks[y][x]}`);
+        }
+        
+        this.#ctx.fillRect(x*32, y*32, 32, 32);
+      }
+    }
   }
 }
