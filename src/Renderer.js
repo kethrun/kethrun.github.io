@@ -1,7 +1,13 @@
 // Do not destroy this class
 export class Renderer {
+  element;
+  ctx;
+  width;
+  height;
+  
   fps = 0;
   #fpsCounter = 0;
+  
   frameCallback;
   
   constructor() {

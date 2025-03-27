@@ -35,7 +35,8 @@ export class World {
 }
 
 export class Chunk {
-  #canvas;
+  block;
+  canvas;
   #ctx;
   
   constructor(blocks) {
