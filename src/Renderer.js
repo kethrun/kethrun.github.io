@@ -28,6 +28,8 @@ export class Renderer {
     this.height = window.innerHeight;
     
     this.ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+    
+    this.ctx.font = "16px sans-serif";
     this.ctx.imageSmoothingEnabled = false;
   }
   
